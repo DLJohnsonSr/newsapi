@@ -43,7 +43,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/**","/admin/**").access("hasAuthority('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org.thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragment/globaltemp::head"></head>
+
+<body>
+
+<!-- Navigation -->
+<nav th:replace="fragment/globaltemp::navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"></nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+            <!-- Title -->
+            <h1 class="mt-4">Login</h1>
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div class="row form-userGroup">
+                    <label class="col-3 col-form-label" for="username">Username: </label>
+                    <input class="col-5 col-form-control"t ype="text" name="username">
+                </div>
+                <div class="row form-userGroup">
+                    <label class="col-3 col-form-label" for="password">Password: </label>
+                    <input class="col-5 col-form-control" type="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+            <hr>
+
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body"></div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Widget -->
+            <div class="card my-4">
+                <h5 class="card-header"></h5>
+                <div class="card-body">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer th:replace="fragment/globaltemp::footer" class="py-5 bg-dark"></footer>
+
+<!-- Bootstrap core JavaScript -->
+<div th:replace="fragment/globaltemp::scripts"></div>
+</body>
+
+</html>

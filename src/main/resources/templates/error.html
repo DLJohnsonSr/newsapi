@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org.thymeleaf-extras-springsecurity4">
 
-<head th:replace="/fragment/globaltemp::head"></head>
+<head th:fragment="head">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Post - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <link href="/css/404.css" rel="stylesheet">
+</head>
 
 <body id="page-top">
 
@@ -29,7 +44,7 @@
                     </section>
                 </div>
                 <div th:if="${status}!=404">
-                    <h3 th:text="'Error: '+{error}"></h3>
+                    <h3 th:text="'Error: '+${error}"></h3>
                     <h3 th:text="'Message: '+${message}"></h3>
                     <h3 th:text="'Status Code: '+${status}"></h3>
                 </div>
