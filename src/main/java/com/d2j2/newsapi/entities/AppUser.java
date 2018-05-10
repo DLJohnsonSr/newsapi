@@ -32,6 +32,7 @@ public class AppUser {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable
     private Set<AppRole>roles;
+    private String categories;
 
     public AppUser() {
         this.roles = new HashSet<>();
@@ -45,6 +46,7 @@ public class AppUser {
         addRoles(role);
         passwordEncoder = passwordEncoder();
         setPassword(password);
+        this.categories = categories;
     }
 
     public long getId() {
@@ -83,4 +85,11 @@ public class AppUser {
         this.roles.add(appRoles);
     }
 
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
+    }
 }

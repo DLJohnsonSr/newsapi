@@ -16,82 +16,21 @@
         <!-- Post Content Column -->
         <div class="col-lg-8">
 
-            <div th:each="eachNewsFeed:${newsFeed}">
-                <div th:each="eachArticle:${eachNewsFeed.articles}">
-                    <hr>
-                    <hr>
-                    <!-- Title -->
-                    <a th:href="${eachArticle.url}"><h3 class="mt-4" th:text="${eachArticle.title}"></h3></a>
-
-                    <!-- Author -->
-                    <p class="lead">
-                        by
-                        <span th:text="${eachArticle.author}"></span>
-                    </p>
-
-                    <hr>
-
-                    <!-- Date/Time -->
-                    <p th:text="${eachArticle.publishedAt}"></p>
-
-                    <hr>
-
-                    <!-- Preview Image -->
-                    <img class="img-fluid rounded" th:src="${eachArticle.urlToImage}" alt="">
-
-                    <hr>
-
-                    <!-- Post Content -->
-                    <p class="lead" th:text="${eachArticle.description}"></p>
-                </div>
-            </div>
-            <hr>
-
             <!-- Comments Form -->
             <div class="card my-4">
-                <h5 class="card-header">Leave a Comment:</h5>
+                <h5 class="card-header">Choose Your News Topics</h5>
                 <div class="card-body">
-                    <form>
+                    <form th:action="@{/savecategories}" th:object="${user}" method="post">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="1" placeholder="ex. (politics,fitness,business)"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <span>Separate topics is a comma with no spaces</span>
                 </div>
             </div>
 
-            <!-- Single Comment -->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                </div>
-            </div>
-
-            <!-- Comment with nested comments -->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                        </div>
-                    </div>
-
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
@@ -147,10 +86,7 @@
             <!-- Side Widget -->
             <div class="card my-4">
                 <h5 class="card-header">Side Widget</h5>
-                <div class="card-body">
-                    You can put anything you want inside of these side widgets. They are easy to use, and feature the
-                    new Bootstrap 4 card containers!
-                </div>
+                <div class="card-body"></div>
             </div>
 
         </div>

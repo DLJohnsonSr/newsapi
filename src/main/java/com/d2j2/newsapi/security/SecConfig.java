@@ -38,12 +38,12 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http    .authorizeRequests()
-                .antMatchers("/","/index","/error","/fragment/**","/css/**","/vendor/**","/js/**","/signup","/saveuser").permitAll()
-                .antMatchers().access("hasAuthority('USER')")
+                .antMatchers("/","/index","/error","/fragment/**","/css/**","/vendor/**","/js/**","/signup","/saveuser","/login").permitAll()
+                .antMatchers("/usernewspage","/addcategories","/savegategories").access("hasAuthority('USER')")
                 .antMatchers("/h2-console/**","/admin/**").access("hasAuthority('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin().loginPage("/login").successForwardUrl("/usernewspage").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 
